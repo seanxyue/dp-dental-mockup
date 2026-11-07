@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/modernist-06079ec0-95de-422c-8ba2-d9672e403e1a/styles.css">
+<script src="_ds/modernist-06079ec0-95de-422c-8ba2-d9672e403e1a/_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--color-bg);} a{color:var(--color-accent-700);} a:hover{color:var(--color-accent);}</style>
+</helmet>
+<div style="padding: 64px; font-family: var(--font-body); color: var(--color-text); display: flex; flex-direction: column; gap: 40px;">
+  <div style="display: flex; flex-direction: column; gap: 8px; border-bottom: 2px solid var(--color-divider); padding-bottom: 24px;">
+    <p style="margin: 0; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent-700);">DP Dental · Responsive check</p>
+    <h1 style="margin: 0; font-family: var(--font-heading); font-size: 48px; line-height: 1.05;">Mobile &amp; tablet</h1>
+    <p style="margin: 0; font-size: 16px;">Live site at real device widths — scroll inside each screen. Open <a href="DP Dental.html">DP Dental.html</a> for desktop.</p>
+  </div>
+  <div style="display: flex; gap: 64px; align-items: flex-start; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: baseline;">
+        <span style="font-family: var(--font-heading); font-size: 22px; font-weight: 700;">Mobile</span>
+        <span style="font-size: 14px;">390 × 844 · iPhone 15</span>
+      </div>
+      <div style="width: 390px; height: 844px; border: 2px solid var(--color-text); background: #fff; overflow: hidden; box-sizing: content-box;">
+        <iframe src="DP Dental.html" title="DP Dental mobile" style="width: 390px; height: 844px; border: 0; display: block;"></iframe>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: baseline;">
+        <span style="font-family: var(--font-heading); font-size: 22px; font-weight: 700;">iPhone 12 Pro Max</span>
+        <span style="font-size: 14px;">428 × 746 · Safari visible area</span>
+      </div>
+      <div style="width: 428px; height: 746px; border: 2px solid var(--color-text); background: #fff; overflow: hidden; box-sizing: content-box;">
+        <iframe src="DP Dental.html" title="DP Dental iPhone 12 Pro Max" style="width: 428px; height: 746px; border: 0; display: block;"></iframe>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: baseline;">
+        <span style="font-family: var(--font-heading); font-size: 22px; font-weight: 700;">Tablet</span>
+        <span style="font-size: 14px;">820 × 1180 · iPad Air</span>
+      </div>
+      <div style="width: 820px; height: 1180px; border: 2px solid var(--color-text); background: #fff; overflow: hidden; box-sizing: content-box;">
+        <iframe src="DP Dental.html" title="DP Dental tablet" style="width: 820px; height: 1180px; border: 0; display: block;"></iframe>
+      </div>
+    </div>
+    <sc-if value="{{ showSmall }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; gap: 12px; align-items: baseline;">
+          <span style="font-family: var(--font-heading); font-size: 22px; font-weight: 700;">Small phone</span>
+          <span style="font-size: 14px;">360 × 780 · Android</span>
+        </div>
+        <div style="width: 360px; height: 780px; border: 2px solid var(--color-text); background: #fff; overflow: hidden; box-sizing: content-box;">
+          <iframe src="DP Dental.html" title="DP Dental small phone" style="width: 360px; height: 780px; border: 0; display: block;"></iframe>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSmallPhone&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() { return { showSmall: this.props.showSmallPhone ?? false }; }
+}
+</script>
+</body>
+</html>
