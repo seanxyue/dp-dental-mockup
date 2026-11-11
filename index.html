@@ -8093,3 +8093,24 @@ document.querySelectorAll('.location-item').forEach(function (item) {
 })();
 </script>
 <script>(function(){var mq=matchMedia('(min-width:901px)');function s(){document.querySelectorAll('details[data-open-desktop]').forEach(function(d){d.open=mq.matches})}s();mq.addEventListener('change',s);document.querySelectorAll('.sqa-tl').forEach(function(ol){var lis=[].slice.call(ol.children);function set(i){lis.forEach(function(li,j){li.classList.toggle('on',j===i);li.classList.toggle('done',j<i);li.setAttribute('aria-current',j===i?'step':'false')})}lis.forEach(function(li,i){li.tabIndex=0;li.setAttribute('role','button');li.addEventListener('click',function(){set(i)});li.addEventListener('keydown',function(e){var k=e.key,n=-1;if(k==='Enter'||k===' '){e.preventDefault();set(i)}if(k==='ArrowRight'||k==='ArrowDown')n=Math.min(i+1,lis.length-1);if(k==='ArrowLeft'||k==='ArrowUp')n=Math.max(i-1,0);if(n>-1){e.preventDefault();lis[n].focus();set(n)}})});set(0)})})();</script>
+<script data-deploy-fix="service-links">
+(function () {
+  var SEL = 'a.nav-view-link[data-view="service-detail"][data-service]';
+  function fix(a) { var h = '#service/' + a.getAttribute('data-service'); if (a.getAttribute('href') !== h) a.setAttribute('href', h); }
+  function all() { document.querySelectorAll(SEL).forEach(fix); }
+  function onEv(e) { var a = e.target && e.target.closest && e.target.closest(SEL); if (a) fix(a); }
+  ['mouseover', 'mousedown', 'contextmenu', 'touchstart', 'focusin'].forEach(function (t) {
+    document.addEventListener(t, onEv, { capture: true, passive: true });
+  });
+  // The page's own click handler always cancels the link, which stops Cmd/Ctrl/Shift/middle-click
+  // from opening a new tab. Let those through to the browser.
+  window.addEventListener('click', function (e) {
+    if (!(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1)) return;
+    var a = e.target && e.target.closest && e.target.closest('a.nav-view-link');
+    if (!a) return;
+    if (a.matches(SEL)) fix(a);
+    e.stopImmediatePropagation();
+  }, true);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', all); else all();
+})();
+</script>
